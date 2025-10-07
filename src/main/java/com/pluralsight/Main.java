@@ -1,17 +1,38 @@
 package com.pluralsight;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Scanner scanner = new Scanner(System.in);
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        do {
+            try {
+                String[] quotes = {
+                        "Je pense donc je suis!",
+                        "Qui vivra verra!",
+                        "C’est la vie!",
+                        "Vivre sans aimer n’est pas vivre!",
+                        "Liberté, égalité, fraternité!",
+                        "Après moi, le déluge!",
+                        "Le cœur a ses raisons que la raison ne connaît point!",
+                        "Rien ne se perd, rien ne se crée, tout se transforme!",
+                        "Je suit rien sans toi!",
+                        " Live, Laugh and be happy"
+                };
+                System.out.print("Pick a quote ( select #1 - #10): ");
+                int index = Integer.parseInt( scanner.nextLine());
+
+                index--;
+                System.out.println(quotes[index]);
+            } catch (Exception e) {
+                System.out.println(" Invalid selection, choose from 1 to 10!");
+                e.printStackTrace();
+            }
+
+
+            System.out.println(" Would you like to try another one: (Y/N)");
+
+        } while(scanner.nextLine().equalsIgnoreCase("y"));
     }
 }
